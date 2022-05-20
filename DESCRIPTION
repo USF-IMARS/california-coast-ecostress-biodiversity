@@ -27,6 +27,9 @@ Depends:
     R (>= 2.10)
 LazyData: true
 Imports: 
-    obisindicators
-Remotes: marinebon/obisindicators
+    obisindicators,
+    robis (>= 2.8.2)
+Remotes:  
+    marinebon/obisindicators,
+    iobis/robis
 Config/testthat/edition: 3
