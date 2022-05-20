@@ -1,4 +1,4 @@
-Package: california-coast-ecostress-biodiversity
+Package: CAecostressbiodiversity
 Title: OBIS indicators for CA coast
 Version: 0.0.1
 URL: https://github.com/USF-IMARS/california-coast-ecostress-biodiversity
@@ -6,9 +6,9 @@ BugReports: https://github.com/USF-IMARS/california-coast-ecostress-biodiversity
 Authors@R: 
   c(
     person(
-      "Tylar", "Murray", , "email@tylar.info", role = c("aut"),
+      "Tylar", "Murray", , "email@tylar.info", role = c("aut", "cre"),
       comment = c(ORCID = "0000-0001-8241-1919")
-    )
+    ),
     person(
       "Dan", "Otis", , "dotis@usf.edu", role = c("aut")
     )
