@@ -24,10 +24,10 @@ library(sf)
 ```{r }
 # these are WKT geometries that can be used to query OBIS
 CA_BOX = "POLYGON ((
-  -122 32, 
-  -122 42, 
-  -117 42, 
-  -117 32, 
+  -122 32,
+  -122 42,
+  -117 42,
+  -117 32,
   -122 32
 ))"
 CA_POLYGON = "POLYGON ((-121.9482421875 35.33529320309328, -120.47607421874999 33.284619968887675, -118.7841796875 32.41706632846282, -116.74072265625 32.63937487360669, -117.46582031249999 33.815666308702774, -119.28955078124999 34.72355492704221, -120.60791015625 35.35321610123823, -121.9482421875 35.33529320309328))"
@@ -35,16 +35,13 @@ CA_POLYGON = "POLYGON ((-121.9482421875 35.33529320309328, -120.47607421874999 3
 # query OBIS for occurrence records
 occ <- robis::occurrence(
 #  c(
-#    "Mytilus", "Anthopleura", "Chthamalus", "Balanus", "Silvetia", 
+#    "Mytilus", "Anthopleura", "Chthamalus", "Balanus", "Silvetia",
 #    "Pisaster", "Pollicipes", "Endocladia", "Phyllospadix"
-#    ), 
+#    ),
   geometry = CA_POLYGON,
   fields = c("decimalLongitude", "decimalLatitude", "species", "date_year", "aphiaID")
   # TODO: figure out how to exclude species=NA records
 )
-
-# view the records fetched
-robis::map_leaflet(occ) 
 
 # squish the data down into the shape expected by metric calculating code
 occ <- group_by(
@@ -64,9 +61,9 @@ res_changes <- function(resolution = 9){
     occ$cell <- dgGEO_to_SEQNUM(dggs, occ$decimalLongitude, occ$decimalLatitude)[["seqnum"]]
     idx <- calc_indicators(occ)
 
-  grid <- dgcellstogrid(dggs, idx$cell) %>% 
-    st_wrap_dateline() %>% 
-    rename(cell = seqnum) %>% 
+  grid <- dgcellstogrid(dggs, idx$cell) %>%
+    st_wrap_dateline() %>%
+    rename(cell = seqnum) %>%
     left_join(
       idx,
       by = "cell")
