@@ -27,7 +27,7 @@ Depends:
     R (>= 2.10)
 LazyData: true
 Imports: 
-    obisindicators,
+    obisindicators (>~ 0.0.2),
     robis (>= 2.8.2)
 Remotes:  
     marinebon/obisindicators,
